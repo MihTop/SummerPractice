@@ -1,1 +1,51 @@
-<p>autorization works!</p>
+<!DOCTYPE html>
+<html lang="ru">
+<body>
+
+<div class="page-wrapper">
+    <app-header></app-header>
+    
+    <div class="main-box login-box">
+        <div class="title-bar">
+            <h2>Вход</h2>
+        </div>
+
+        <div class="login-form">
+            <div class="login-fields">
+
+                <div class="field-group">
+                    <label class="field-label">Почта/псевдоним<span class="star">*</span></label>
+                    <input class="field-input input-large" type="email" placeholder="example@ex.ru" />
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Пароль<span class="star">*</span></label>
+                    <input 
+                        class="field-input input-large" 
+                        type="password" 
+                        [(ngModel)]="password"
+                        [class.password-invalid]="password.length > 0 && !(password.length >= 3 && password.length <= 20)"
+                    />
+                    @if (password.length > 0 && !(password.length >= 3 && password.length <= 20)) {
+                        <span class="password-hint">
+                            Пароль должен содержать от 3 до 20 символов
+                        </span>
+                    }
+                </div>
+
+                <div class="login-actions">
+                    <button class="btn-register btn-large">Войти</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="login-footer">
+        <span class="login-footer-text">Нет аккаунта?</span>
+        <button class="btn-register btn-footer" routerLink="/registration">К регистрации</button>
+    </div>
+</div>
+
+</body>
+</html>

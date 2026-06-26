@@ -1,1 +1,212 @@
-/* You can add global styles to this file, and also import other style files */
+/* ---------- Глобальный сброс ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f2f2f2;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* ---------- ОСНОВНОЙ БЛОК ---------- */
+.main-box {
+    background: #ffffff;
+    width: 100%;
+    border: 1px solid #000000;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* ---------- ЗАГОЛОВОК ---------- */
+.title-bar {
+    background: linear-gradient(to right, #b8e6ff, #7fa7b8);
+    padding: 20px 32px;
+    border-bottom: 1px solid #000000;
+}
+
+.title-bar h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: -0.2px;
+}
+
+/* ---------- СЕТКА: 2 КОЛОНКИ ---------- */
+.form-grid {
+    display: flex;
+    gap: 40px;
+    padding: 32px 40px 36px;
+}
+
+.left-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+}
+
+.right-col {
+    flex: 0 0 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- ПОЛЯ ВВОДА ---------- */
+.field-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.field-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 4px;
+}
+
+.field-label .star {
+    color: #cc0000;
+    margin-left: 1px;
+}
+
+.field-input {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #ffffff;
+    outline: none;
+    height: 42px;
+    transition: border-color 0.15s, background 0.15s;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.field-input:focus {
+    border-color: #66b2ef;
+    background: #fafcff;
+}
+
+/* ---------- ПОЛЕ "ВЫБЕРИТЕ ФОТО" ---------- */
+.file-upload-row {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    width: 100%;
+}
+
+.file-upload-row .field-input {
+    border-radius: 8px 0 0 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.file-upload-row .btn-file {
+    background: #e2e6e9;
+    border: 1px solid #000000;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    padding: 0 24px;
+    height: 42px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333333;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 1px 0 #ffffff, 0 2px 4px rgba(0, 0, 0, 0.04);
+    transition: 0.1s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.file-upload-row .btn-file:hover {
+    background: #d0d5da;
+}
+
+/* ---------- КНОПКИ ---------- */
+.actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.required-note {
+    font-size: 13px;
+    color: #666666;
+}
+
+.btn-register {
+    background: #e2e6e9;
+    border: 1px solid #666666;
+    border-radius: 40px;
+    padding: 12px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+    cursor: default;
+    box-shadow: inset 0 1px 0 #ffffff, 0 2px 4px rgba(0, 0, 0, 0.04);
+    transition: 0.1s;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+
+.btn-register:hover {
+    background: #d0d5da;
+    transform: scale(1.01);
+}
+
+/* ---------- ПРАВАЯ КОЛОНКА (АВАТАР) ---------- */
+.avatar-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #ffffff;
+    border: 2px solid #aaaaaa;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
