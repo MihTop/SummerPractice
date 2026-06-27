@@ -8,74 +8,42 @@
 body {
     background: #f2f2f2;
     font-family: 'Segoe UI', 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    padding: 40px;
 }
 
+/* ---------- ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КОМПОНЕНТОВ ---------- */
 .page-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1100px;
+    min-height: 100vh;
+    background: #f2f2f2;
 }
 
-/* ---------- ОСНОВНОЙ БЛОК ---------- */
+app-header {
+    flex-shrink: 0;
+}
+
 .main-box {
     background: #ffffff;
-    width: 100%;
     border: 1px solid #000000;
     overflow: hidden;
     border-radius: 16px;
+    width: 100% !important;
 }
 
 /* ---------- ЗАГОЛОВОК ---------- */
 .title-bar {
     background: linear-gradient(to right, #b8e6ff, #7fa7b8);
-    padding: 36px 48px;
+    padding: 28px 48px;
     border-bottom: 1px solid #000000;
 }
 
 .title-bar h2 {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 700;
     color: #000000;
     letter-spacing: -0.2px;
-}
-
-/* ---------- ФОРМА (общие стили для входа и регистрации) ---------- */
-.form-content {
-    padding: 80px 96px 96px;
-}
-
-.form-fields {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-/* ---------- СЕТКА ДЛЯ РЕГИСТРАЦИИ (2 колонки) ---------- */
-.form-grid {
-    display: flex;
-    gap: 40px;
-    padding: 32px 40px 36px;
-}
-
-.left-col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    min-width: 0;
-}
-
-.right-col {
-    flex: 0 0 280px;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
 }
 
 /* ---------- ПОЛЯ ВВОДА ---------- */
@@ -99,14 +67,14 @@ body {
 
 .field-input {
     width: 100%;
-    padding: 16px 24px;
-    font-size: 19px;
+    padding: 14px 20px;
+    font-size: 17px;
     font-family: inherit;
     border: 1px solid #000000;
     border-radius: 8px;
     background: #ffffff;
     outline: none;
-    height: 68px;
+    height: 56px;
     transition: border-color 0.15s, background 0.15s;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
 }
@@ -116,7 +84,67 @@ body {
     background: #fafcff;
 }
 
-/* ---------- ПОЛЕ "ВЫБЕРИТЕ ФОТО" ---------- */
+/* ---------- КНОПКИ ---------- */
+.btn-primary {
+    background: #e2e6e9;
+    border: 1px solid #666666;
+    border-radius: 40px;
+    padding: 16px 50px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 #ffffff, 0 2px 4px rgba(0, 0, 0, 0.04);
+    transition: 0.1s;
+    font-family: inherit;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background: #d0d5da;
+    transform: scale(1.01);
+}
+
+.btn-primary.btn-sm {
+    padding: 14px 36px;
+    font-size: 18px;
+}
+
+/* ---------- ПОДВАЛ ФОРМЫ ---------- */
+.form-footer {
+    text-align: center;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-footer-text {
+    font-size: 19px;
+    color: #666666;
+}
+
+/* ---------- ВАЛИДАЦИЯ ---------- */
+.field-error {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1) !important;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+.password-invalid {
+    border-color: #dc3545 !important;
+    background-color: #fff5f5 !important;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1) !important;
+}
+
+/* ---------- ФАЙЛОВЫЙ ВВОД ---------- */
 .file-upload-row {
     display: flex;
     gap: 0;
@@ -135,12 +163,12 @@ body {
     border: 1px solid #000000;
     border-left: none;
     border-radius: 0 8px 8px 0;
-    padding: 0 24px;
-    height: 68px;
+    padding: 0 20px;
+    height: 56px;
     font-size: 15px;
     font-weight: 600;
     color: #333333;
-    cursor: default;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,46 +182,7 @@ body {
     background: #d0d5da;
 }
 
-/* ---------- КНОПКИ ---------- */
-.actions-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    width: 100%;
-}
-
-.required-note {
-    font-size: 13px;
-    color: #666666;
-}
-
-.btn-register {
-    background: #e2e6e9;
-    border: 1px solid #666666;
-    border-radius: 40px;
-    padding: 22px 72px;
-    font-size: 22px;
-    font-weight: 600;
-    color: #333333;
-    cursor: default;
-    box-shadow: inset 0 1px 0 #ffffff, 0 2px 4px rgba(0, 0, 0, 0.04);
-    transition: 0.1s;
-    font-family: inherit;
-    flex-shrink: 0;
-}
-
-.btn-register:hover {
-    background: #d0d5da;
-    transform: scale(1.01);
-}
-
-.btn-footer {
-    padding: 16px 40px;
-    font-size: 19px;
-}
-
-/* ---------- ПРАВАЯ КОЛОНКА (АВАТАР) ---------- */
+/* ---------- АВАТАР ---------- */
 .avatar-box {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -227,73 +216,78 @@ body {
     width: 100%;
 }
 
-/* ---------- ПОДВАЛ ФОРМЫ ---------- */
-.form-footer {
-    margin-top: 48px;
-    text-align: center;
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    justify-content: center;
+/* ---------- КОНТЕЙНЕР ДЛЯ ПОЛЯ С КРЕСТИКОМ ---------- */
+.input-wrapper {
+    position: relative;
+    width: 100%;
 }
 
-.form-footer-text {
-    font-size: 19px;
-    color: #666666;
+.input-wrapper .field-input {
+    padding-right: 45px;
 }
 
-/* ---------- ДЕЙСТВИЯ ФОРМЫ ---------- */
-.form-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: 24px;
+/* ---------- КРЕСТИК ОЧИСТКИ ---------- */
+.clear-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+    font-size: 18px;
+    font-weight: 300;
+    transition: color 0.2s;
+    user-select: none;
+    line-height: 1;
 }
 
-/* ---------- СТИЛИ ДЛЯ ПАРОЛЯ ---------- */
-
-/* Невалидный пароль */
-.password-invalid {
-    border-color: #dc3545 !important;
-    background-color: #fff5f5 !important;
-    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1) !important;
+.clear-btn:hover {
+    color: #333;
 }
 
-/* Подсказка под полем пароля */
-.password-hint {
+.clear-btn:active {
     color: #dc3545;
-    font-size: 13px;
-    margin-top: 6px;
-    display: block;
 }
 
-/* ---------- ВАЛИДАЦИЯ ПОЛЕЙ ---------- */
-.field-error {
-    border-color: #dc3545 !important;
-    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1) !important;
+.input-hint-wrapper {
+    position: relative;
+    width: 100%;
 }
 
-.error-message {
-    color: #dc3545;
-    font-size: 12px;
+
+.input-hint {
+    position: absolute;
+    top: 100%;
+    left: 5%;
     margin-top: 4px;
-    display: block;
+    color: #6c757d;
+    font-size: 14px;
+    background: #ffffff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid #000000;
+    z-index: 1000;
+    white-space: nowrap;
+    font-family: inherit;
+    line-height: 1.5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
 }
 
-/* ---------- СТИЛИ ДЛЯ КНОПКИ ---------- */
-
-/* Красная обводка для невалидной кнопки */
-.btn-invalid {
-    border-color: #dc3545 !important;
-    border-width: 2px !important;
-    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2) !important;
+/* Адаптация для больших полей входа */
+.login-box .input-hint {
+    font-size: 18px;
+    padding: 6px 14px;
 }
 
-/* Подсказка под кнопкой */
-.button-hint {
-    color: #dc3545;
-    font-size: 13px;
-    margin-top: 6px;
-    display: block;
-    text-align: right;
+/* Если поле с hint имеет класс field-error, hint должен оставаться видимым */
+.field-error ~ .input-hint {
+    color: #6c757d;
+    background: #ffffff;
+    border-color: #000000;
+}
+
+/* ---------- АДАПТИВНОСТЬ ДЛЯ ПОЛЕЙ ВХОДА ---------- */
+.login-box .input-wrapper .field-input {
+    padding-right: 45px;
 }

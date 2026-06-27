@@ -1,63 +1,96 @@
-<!DOCTYPE html>
-<html lang="ru">
-<body>
-    <div class="page-wrapper">
-        <app-header></app-header>
-        
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-10 col-lg-8 col-xl-7">
-                    <div class="main-box login-box">
-                        <div class="title-bar">
-                            <h2>Вход</h2>
-                        </div>
+<div class="page-wrapper">
+    <app-header></app-header>
+    
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-11 col-md-12">
+                <div class="main-box login-box">
+                    <div class="title-bar">
+                        <h2>Вход</h2>
+                    </div>
 
-                        <div class="login-form">
-                            <div class="login-fields">
-                                <div class="field-group">
-                                    <label class="field-label">
-                                        Почта/псевдоним<span class="star">*</span>
-                                    </label>
-                                    <input 
-                                        class="field-input" 
-                                        type="email" 
-                                        placeholder="example@ex.ru" 
-                                    />
+                    <div class="p-4 p-md-5">
+                        <div class="d-flex flex-column gap-4">
+                            
+                            <!-- Поле "Почта/Псевдоним" -->
+                            <div class="field-group">
+                                <label class="field-label">
+                                    Почта/псевдоним<span class="star">*</span>
+                                </label>
+                                <div class="input-hint-wrapper">
+                                    <div class="input-wrapper">
+                                        <input 
+                                            class="field-input" 
+                                            type="text" 
+                                            placeholder="example@ex.ru"
+                                            [(ngModel)]="username"
+                                            [class.field-error]="showErrors && usernameError"
+                                            (focus)="showUsernameHint = true"
+                                            (blur)="showUsernameHint = false"
+                                            maxlength="31"
+                                            (input)="usernameError = false; generalError = false"
+                                        />
+                                        <!-- Крестик очистки -->
+                                        @if (username) {
+                                            <span class="clear-btn" (click)="clearUsername()">✕</span>
+                                        }
+                                    </div>
+                                    <!-- Хинт при фокусе, если поле пустое -->
+                                    @if (showUsernameHint && !username) {
+                                        <span class="input-hint">Почта в формате .ru</span>
+                                    }
                                 </div>
+                            </div>
 
-                                <div class="field-group">
-                                    <label class="field-label">
-                                        Пароль<span class="star">*</span>
-                                    </label>
+                            <!-- Поле "Пароль" -->
+                            <div class="field-group">
+                                <label class="field-label">
+                                    Пароль<span class="star">*</span>
+                                </label>
+                                <div class="input-wrapper">
                                     <input 
                                         class="field-input" 
                                         type="password" 
                                         [(ngModel)]="password"
-                                        [class.password-invalid]="password.length > 0 && !(password.length >= 3 && password.length <= 20)"
+                                        [class.field-error]="(showErrors && passwordError) || passwordInvalidChars"
+                                        maxlength="20"
+                                        (input)="passwordError = false; generalError = false; checkPasswordChars()"
                                     />
-                                    @if (password.length > 0 && !(password.length >= 3 && password.length <= 20)) {
-                                        <span class="error-message">
-                                            Пароль должен содержать от 3 до 20 символов
-                                        </span>
+                                    @if (password) {
+                                        <span class="clear-btn" (click)="clearPassword()">✕</span>
                                     }
                                 </div>
-
-                                <div class="login-actions">
-                                    <button class="btn-register">Войти</button>
-                                </div>
+                                @if (passwordInvalidChars) {
+                                    <span class="error-message">Допустимы только латиница, цифры и подчёркивания</span>
+                                }
+                                @if (showErrors && passwordError) {
+                                    <span class="error-message">Пароль должен содержать от 3 до 20 символов</span>
+                                }
                             </div>
+
+                            <!-- Кнопка входа -->
+                            <button class="btn-primary w-100" (click)="onLogin()">
+                                Войти
+                            </button>
+
+                            <!-- Общая ошибка -->
+                            @if (generalError) {
+                                <div class="general-error">
+                                    Заполнены не все обязательные поля
+                                </div>
+                            }
                         </div>
                     </div>
+                </div>
 
-                    <div class="form-footer">
-                        <span class="form-footer-text">Нет аккаунта?</span>
-                        <button class="btn-register btn-footer" routerLink="/registration">
-                            К регистрации
-                        </button>
-                    </div>
+                <!-- Футер с переходом на регистрацию -->
+                <div class="form-footer mt-4">
+                    <span class="form-footer-text">Нет аккаунта?</span>
+                    <button class="btn-primary btn-sm" routerLink="/registration">
+                        К регистрации
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>

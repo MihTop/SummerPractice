@@ -1,204 +1,277 @@
-<!DOCTYPE html>
-<html lang="ru">
-<body>
-    <div class="page-wrapper">
-        <app-header></app-header>
-        
-        <div class="container">
-            <div class="main-box">
-                <div class="title-bar">
-                    <h2>Регистрация нового пользователя</h2>
-                </div>
-
-                <div class="form-grid">
-                    <div class="left-col">
-                        <!-- 1. Псевдоним -->
-                        <div class="field-group">
-                            <label class="field-label">
-                                Псевдоним<span class="star">*</span>
-                            </label>
-                            <input 
-                                class="field-input" 
-                                type="text" 
-                                [(ngModel)]="nickname"
-                                [class.field-error]="showErrors && nicknameError"
-                                (input)="nicknameError = false"
-                            />
-                            @if (showErrors && nicknameError) {
-                                <span class="error-message">
-                                    Псевдоним обязателен для заполнения
-                                </span>
-                            }
-                        </div>
-
-                        <!-- 2. Почта -->
-                        <div class="field-group">
-                            <label class="field-label">
-                                Почта<span class="star">*</span>
-                            </label>
-                            <input 
-                                class="field-input" 
-                                type="email" 
-                                [(ngModel)]="email"
-                                [class.field-error]="showErrors && emailError"
-                                (input)="emailError = false"
-                            />
-                            @if (showErrors && emailError) {
-                                <span class="error-message">
-                                    Введите корректный email
-                                </span>
-                            }
-                        </div>
-
-                        <!-- 3. Пароль -->
-                        <div class="field-group">
-                            <label class="field-label">
-                                Пароль<span class="star">*</span>
-                            </label>
-                            <input 
-                                class="field-input" 
-                                type="password" 
-                                [(ngModel)]="password"
-                                [class.field-error]="showErrors && passwordError"
-                                (input)="passwordError = false"
-                            />
-                            @if (showErrors && passwordError) {
-                                <span class="error-message">
-                                    Пароль должен содержать от 3 до 20 символов
-                                </span>
-                            }
-                        </div>
-
-                        <!-- 4. Повторите пароль -->
-                        <div class="field-group">
-                            <label class="field-label">
-                                Повторите пароль<span class="star">*</span>
-                            </label>
-                            <input 
-                                class="field-input" 
-                                type="password" 
-                                [(ngModel)]="confirmPassword"
-                                [class.field-error]="showErrors && (confirmPasswordError || passwordsMatchError)"
-                                (input)="confirmPasswordError = false; passwordsMatchError = false"
-                            />
-                            @if (showErrors && confirmPasswordError) {
-                                <span class="error-message">
-                                    Подтверждение пароля обязательно
-                                </span>
-                            }
-                            @if (showErrors && passwordsMatchError) {
-                                <span class="error-message">
-                                    Пароли не совпадают
-                                </span>
-                            }
-                        </div>
-
-                        <!-- 5. Фамилия -->
-                        <div class="field-group">
-                            <label class="field-label">
-                                Фамилия<span class="star">*</span>
-                            </label>
-                            <input 
-                                class="field-input" 
-                                type="text" 
-                                [(ngModel)]="surname"
-                            />
-                        </div>
-
-                        <!-- 6. Имя -->
-                        <div class="field-group">
-                            <label class="field-label">
-                                Имя<span class="star">*</span>
-                            </label>
-                            <input 
-                                class="field-input" 
-                                type="text" 
-                                [(ngModel)]="name"
-                            />
-                        </div>
-
-                        <!-- 7. Выберите фото -->
-                        <div class="field-group">
-                            <label class="field-label">
-                                Выберите фото
-                            </label>
-                            <div class="file-upload-row">
-                                <input 
-                                    class="field-input" 
-                                    type="text" 
-                                    [(ngModel)]="photo"
-                                    readonly 
-                                />
-                                <span class="btn-file">Обзор</span>
-                            </div>
-                        </div>
-
-                        <!-- 8. Контактная информация -->
-                        <div class="field-group">
-                            <label class="field-label">
-                                Контактная информация
-                            </label>
-                            <input 
-                                class="field-input" 
-                                type="text" 
-                                [(ngModel)]="contact"
-                            />
-                        </div>
-
-                        <!-- 9. О себе -->
-                        <div class="field-group">
-                            <label class="field-label">
-                                О себе
-                            </label>
-                            <input 
-                                class="field-input" 
-                                type="text" 
-                                [(ngModel)]="about"
-                            />
-                        </div>
-
-                        <!-- 10. Достижения -->
-                        <div class="field-group">
-                            <label class="field-label">
-                                Достижения
-                            </label>
-                            <input 
-                                class="field-input" 
-                                type="text"
-                                [(ngModel)]="achievements"
-                            />
-                        </div>
-
-                        <!-- Подвал формы -->
-                        <div class="actions-row">
-                            <span class="required-note">
-                                * — Обязательные для заполнения поля
-                            </span>
-                            <span class="btn-register" (click)="onRegister()">
-                                Зарегистрироваться
-                            </span>
-                        </div>
+<div class="page-wrapper">
+    <app-header></app-header>
+    
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-11 col-md-12">
+                <div class="main-box">
+                    <div class="title-bar">
+                        <h2>Регистрация нового пользователя</h2>
                     </div>
 
-                    <!-- ПРАВАЯ КОЛОНКА (Аватар) -->
-                    <div class="right-col">
-                        <div class="avatar-wrapper">
-                            <span class="avatar-label">Аватар</span>
-                            <div class="avatar-box">
-                                <img src="" alt="Аватар пользователя" />
+                    <div class="row g-4 p-4">
+                        <!-- ЛЕВАЯ КОЛОНКА -->
+                        <div class="col-lg-8">
+                            <!-- 1. Псевдоним -->
+                            <div class="field-group">
+                                <label class="field-label">
+                                    Псевдоним<span class="star">*</span>
+                                </label>
+                                <div class="input-hint-wrapper">
+                                    <div class="input-wrapper">
+                                        <input 
+                                            class="field-input" 
+                                            type="text" 
+                                            [(ngModel)]="nickname"
+                                            [class.field-error]="(showErrors && nicknameError) || nicknameTakenError"
+                                            maxlength="20"
+                                            (focus)="showNicknameHint = true"
+                                            (blur)="showNicknameHint = false"
+                                            (input)="nicknameError = false; nicknameTakenError = false; generalError = false; checkNicknameChars()"
+                                        />
+                                        @if (nickname) {
+                                            <span class="clear-btn" (click)="clearNickname()">✕</span>
+                                        }
+                                        @if (nicknameInvalidChars) {
+                                            <span class="error-message">Допустимы только латиница, кириллица, цифры и подчёркивания</span>
+                                        }
+                                    </div>
+                                    <!-- Хинт при фокусе, если поле пустое -->
+                                    @if (showNicknameHint && !nickname) {
+                                        <span class="input-hint">От 3 до 20 символов. Латиница, кириллица, цифры и подчёркивания</span>
+                                    }
+                                </div>
+                                @if (showErrors && nicknameError) {
+                                    <span class="error-message">Псевдоним обязателен для заполнения</span>
+                                }
+                                @if (nicknameTakenError) {
+                                    <span class="error-message">Такой псевдоним уже занят</span>
+                                }
+                            </div>
+
+                            <!-- 2. Почта -->
+                            <div class="field-group">
+                                <label class="field-label">
+                                    Почта<span class="star">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input 
+                                        class="field-input" 
+                                        type="email" 
+                                        placeholder="example@ex.ru"
+                                        [(ngModel)]="email"
+                                        [class.field-error]="(showErrors && emailError) || emailTakenError"
+                                        maxlength="31"
+                                        (input)="emailError = false; emailTakenError = false; generalError = false"
+                                    />
+                                    @if (email) {
+                                        <span class="clear-btn" (click)="clearEmail()">✕</span>
+                                    }
+                                </div>
+                                @if (showErrors && emailError) {
+                                    <span class="error-message">Введите корректный email</span>
+                                }
+                                @if (emailTakenError) {
+                                    <span class="error-message">Такая почта уже зарегистрирована</span>
+                                }
+                            </div>
+
+                            <!-- 3. Пароль -->
+                            <div class="field-group">
+                                <label class="field-label">
+                                    Пароль<span class="star">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input 
+                                        class="field-input" 
+                                        type="password" 
+                                        [(ngModel)]="password"
+                                        [class.field-error]="showErrors && passwordError"
+                                        maxlength="20"
+                                        (focus)="showPasswordHint = true"
+                                        (blur)="showPasswordHint = false"
+                                        (input)="passwordError = false; generalError = false; checkPasswordChars()"
+                                    />
+                                    <!-- Хинт при фокусе, если поле пустое -->
+                                    @if (showPasswordHint && !password) {
+                                        <span class="input-hint">От 6 до 20 символов. Латиница, цифры и подчёркивания</span>
+                                    }
+                                    @if (password) {
+                                        <span class="clear-btn" (click)="clearPassword()">✕</span>
+                                    }
+                                </div>
+                                @if (passwordInvalidChars) {
+                                    <span class="error-message">Допустимы только латиница, цифры и подчёркивания</span>
+                                }
+                                @if (showErrors && passwordError) {
+                                    <span class="error-message">Пароль должен содержать от 6 до 20 символов</span>
+                                }
+                            </div>
+
+                            <!-- 4. Подтвердите пароль -->
+                            <div class="field-group">
+                                <label class="field-label">
+                                    Подтвердите пароль<span class="star">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input 
+                                        class="field-input" 
+                                        type="password" 
+                                        [(ngModel)]="confirmPassword"
+                                        [class.field-error]="showErrors && (confirmPasswordError || passwordsMatchError)"
+                                        maxlength="20"
+                                        (input)="confirmPasswordError = false; passwordsMatchError = false; generalError = false"
+                                    />
+                                    @if (confirmPassword) {
+                                        <span class="clear-btn" (click)="clearConfirmPassword()">✕</span>
+                                    }
+                                </div>
+                                @if (showErrors && confirmPasswordError) {
+                                    <span class="error-message">Подтверждение пароля обязательно</span>
+                                }
+                                @if (showErrors && passwordsMatchError) {
+                                    <span class="error-message">Пароли не совпадают</span>
+                                }
+                            </div>
+
+                            <!-- 5. Фамилия -->
+                            <div class="field-group">
+                                <label class="field-label">Фамилия</label>
+                                <div class="input-wrapper">
+                                    <input 
+                                        class="field-input" 
+                                        type="text" 
+                                        [(ngModel)]="surname"
+                                        maxlength="31"
+                                    />
+                                    @if (surname) {
+                                        <span class="clear-btn" (click)="clearSurname()">✕</span>
+                                    }
+                                </div>
+                            </div>
+
+                            <!-- 6. Имя -->
+                            <div class="field-group">
+                                <label class="field-label">Имя</label>
+                                <div class="input-wrapper">
+                                    <input 
+                                        class="field-input" 
+                                        type="text" 
+                                        [(ngModel)]="name"
+                                        maxlength="31"
+                                    />
+                                    @if (name) {
+                                        <span class="clear-btn" (click)="clearName()">✕</span>
+                                    }
+                                </div>
+                            </div>
+
+                            <!-- 7. Выберите фото -->
+                            <div class="field-group">
+                                <label class="field-label">Выберите фото</label>
+                                <div class="file-upload-row">
+                                    <input 
+                                        class="field-input" 
+                                        type="text" 
+                                        [(ngModel)]="photo"
+                                        readonly 
+                                    />
+                                    <span class="btn-file" (click)="triggerFileInput()">Обзор</span>
+                                    <input 
+                                        type="file" 
+                                        #fileInput
+                                        accept="image/*"
+                                        style="display: none"
+                                        (change)="onFileSelected($event)"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- 8. Контактная информация -->
+                            <div class="field-group">
+                                <label class="field-label">Контактная информация</label>
+                                <div class="input-wrapper">
+                                    <textarea 
+                                        class="field-input textarea-input" 
+                                        [(ngModel)]="contact"
+                                        maxlength="255"
+                                        rows="4"
+                                    ></textarea>
+                                    @if (contact) {
+                                        <span class="clear-btn textarea-clear" (click)="clearContact()">✕</span>
+                                    }
+                                </div>
+                            </div>
+
+                            <!-- 9. О себе -->
+                            <div class="field-group">
+                                <label class="field-label">О себе</label>
+                                <div class="input-wrapper">
+                                    <textarea 
+                                        class="field-input textarea-input" 
+                                        [(ngModel)]="about"
+                                        maxlength="255"
+                                        rows="4"
+                                    ></textarea>
+                                    @if (about) {
+                                        <span class="clear-btn textarea-clear" (click)="clearAbout()">✕</span>
+                                    }
+                                </div>
+                            </div>
+
+                            <!-- 10. Достижения -->
+                            <div class="field-group">
+                                <label class="field-label">Достижения</label>
+                                <div class="input-wrapper">
+                                    <textarea 
+                                        class="field-input textarea-input" 
+                                        [(ngModel)]="achievements"
+                                        maxlength="255"
+                                        rows="4"
+                                    ></textarea>
+                                    @if (achievements) {
+                                        <span class="clear-btn textarea-clear" (click)="clearAchievements()">✕</span>
+                                    }
+                                </div>
+                            </div>
+
+                            <!-- Подвал формы -->
+                            <div class="d-flex justify-content-between align-items-center mt-3 gap-3 flex-wrap">
+                                <span class="required-note">
+                                    * — Обязательные для заполнения поля
+                                </span>
+                                <span class="btn-primary" (click)="onRegister()">
+                                    Зарегистрироваться
+                                </span>
+                            </div>
+
+                            @if (generalError) {
+                                <div class="general-error">
+                                    Заполнены не все обязательные поля!
+                                </div>
+                            }
+                        </div>
+
+                        <!-- ПРАВАЯ КОЛОНКА (Аватар) -->
+                        <div class="col-lg-4">
+                            <div class="avatar-wrapper">
+                                <span class="avatar-label">Аватар</span>
+                                <div class="avatar-box">
+                                    <img [src]="avatarPreview || 'default-avatar.png'" alt="Аватар пользователя" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="form-footer">
-                <span class="form-footer-text">Уже есть аккаунт?</span>
-                <button class="btn-register btn-footer" routerLink="/login">
-                    Войти
-                </button>
+                
+                <!-- Футер с переходом на вход -->
+                <div class="form-footer mt-4">
+                    <span class="form-footer-text">Уже есть аккаунт?</span>
+                    <button class="btn-primary btn-sm" routerLink="/login">
+                        Войти
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>

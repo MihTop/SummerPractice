@@ -1,38 +1,64 @@
-.login-box {
-    max-width: 800px;
-    width: 90%;
-    min-width: 700px;   
-    min-height: 600px;
-    margin: 0 auto;
-    border-radius: 16px;
+/* ---------- ОШИБКИ ДЛЯ СТРАНИЦЫ ВХОДА ---------- */
+.general-error {
+    color: #dc3545;
+    font-size: 14px;
+    text-align: center;
+    padding: 8px 0;
+    margin: 5px 0;
+    font-weight: 500;
+    border-radius: 6px;
 }
 
+/* ---------- ХИНТ ДЛЯ ПОЛЯ ВВОДА ---------- */
+.hint-message {
+    color: #6c757d;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+    font-style: italic;
+}
+
+/* ---------- ФОРМА ВХОДА ---------- */
 .login-form {
-    padding: 100px 120px 120px;
-    min-height: 600px;
+    padding: 60px 80px 80px;
+    display: flex;
+    flex-direction: column;
 }
 
 .login-fields {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
+    width: 100%;
 }
 
 .login-box .field-input {
-    width: 100%;
-    padding: 20px 28px;
-    font-size: 20px;
-    height: 72px;
-    border: 2px solid #000000;
+    height: 64px;
+    padding: 16px 24px;
+    font-size: 19px;
 }
 
-.login-box .btn-register {
-    padding: 24px 80px;
-    font-size: 24px;
-    min-width: 250px;
+.login-box .btn-primary {
     width: 100%;
+    padding: 18px 60px;
+    font-size: 22px;
 }
 
 .login-actions {
-    margin-top: 40px;
+    margin-top: 10px;
+}
+
+/* ---------- ПОДВАЛ ДЛЯ СТРАНИЦЫ ВХОДА ---------- */
+.form-footer {
+    text-align: center;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-footer-text {
+    font-size: 19px;
+    color: #666666;
 }

@@ -1,0 +1,113 @@
+/* ---------- ТЕКСТОВЫЕ ПОЛЯ (TEXTAREA) ---------- */
+.textarea-input {
+    height: auto !important;
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+    line-height: 1.5;
+    padding: 14px 20px;
+}
+
+/* Для крестика в textarea */
+.textarea-clear {
+    top: 20px !important;
+    transform: none !important;
+}
+
+/* ---------- ОБЩАЯ ОШИБКА ---------- */
+.general-error {
+    color: #dc3545;
+    font-size: 14px;
+    text-align: center;
+    padding: 8px 0;
+    margin: 10px 0 0 0;
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+/* ---------- ХИНТ ---------- */
+.hint-message {
+    color: #6c757d;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+    font-style: italic;
+}
+
+/* ---------- ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ФАЙЛОВОГО ВВОДА ---------- */
+.file-upload-row {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    width: 100%;
+}
+
+.file-upload-row .field-input {
+    border-radius: 8px 0 0 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.file-upload-row .btn-file {
+    background: #e2e6e9;
+    border: 1px solid #000000;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    padding: 0 20px;
+    height: 56px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 1px 0 #ffffff, 0 2px 4px rgba(0, 0, 0, 0.04);
+    transition: 0.1s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.file-upload-row .btn-file:hover {
+    background: #d0d5da;
+}
+
+/* ---------- АВАТАР ---------- */
+.avatar-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #ffffff;
+    border: 2px solid #aaaaaa;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* ---------- ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ---------- */
+.required-note {
+    font-size: 13px;
+    color: #666666;
+}
