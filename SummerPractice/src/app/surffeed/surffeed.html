@@ -1,11 +1,25 @@
-<nav>
-    <a routerLink="/">Главная</a>
-    <a routerLink="/login">Вход</a>
-    <a routerLink="/registration">Рега</a>
-</nav>
-<body>
+<div class="page-wrapper">
     <app-header></app-header>
-    <div>
+    
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-12">
 
+                <app-newpost></app-newpost>
+                
+                <div class="posts-feed mt-4">
+                    @for (post of posts; track post.id) {
+                        <app-post 
+                            [username]="post.username"
+                            [avatar]="post.avatar"
+                            [date]="post.date"
+                            [text]="post.text"
+                            [image]="post.image"
+                            [likes]="post.likes"
+                        ></app-post>
+                    }
+                </div>
+            </div>
+        </div>
     </div>
-</body>
+</div>

@@ -1,4 +1,3 @@
-/* ---------- Глобальный сброс ---------- */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +10,6 @@ body {
     min-height: 100vh;
 }
 
-/* ---------- ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КОМПОНЕНТОВ ---------- */
 .page-wrapper {
     display: flex;
     flex-direction: column;
@@ -31,7 +29,6 @@ app-header {
     width: 100% !important;
 }
 
-/* ---------- ЗАГОЛОВОК ---------- */
 .title-bar {
     background: linear-gradient(to right, #b8e6ff, #7fa7b8);
     padding: 28px 48px;
@@ -46,7 +43,6 @@ app-header {
     margin: 0;
 }
 
-/* ---------- ПОЛЯ ВВОДА ---------- */
 .field-group {
     display: flex;
     flex-direction: column;
@@ -84,7 +80,6 @@ app-header {
     background: #fafcff;
 }
 
-/* ---------- КНОПКИ ---------- */
 .btn-primary {
     background: #e2e6e9;
     border: 1px solid #666666;
@@ -111,7 +106,6 @@ app-header {
     font-size: 18px;
 }
 
-/* ---------- ПОДВАЛ ФОРМЫ ---------- */
 .form-footer {
     text-align: center;
     display: flex;
@@ -125,7 +119,6 @@ app-header {
     color: #666666;
 }
 
-/* ---------- ВАЛИДАЦИЯ ---------- */
 .field-error {
     border-color: #dc3545 !important;
     box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1) !important;
@@ -144,7 +137,6 @@ app-header {
     box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1) !important;
 }
 
-/* ---------- ФАЙЛОВЫЙ ВВОД ---------- */
 .file-upload-row {
     display: flex;
     gap: 0;
@@ -182,7 +174,6 @@ app-header {
     background: #d0d5da;
 }
 
-/* ---------- АВАТАР ---------- */
 .avatar-box {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -216,7 +207,6 @@ app-header {
     width: 100%;
 }
 
-/* ---------- КОНТЕЙНЕР ДЛЯ ПОЛЯ С КРЕСТИКОМ ---------- */
 .input-wrapper {
     position: relative;
     width: 100%;
@@ -226,7 +216,6 @@ app-header {
     padding-right: 45px;
 }
 
-/* ---------- КРЕСТИК ОЧИСТКИ ---------- */
 .clear-btn {
     position: absolute;
     right: 15px;
@@ -254,7 +243,6 @@ app-header {
     width: 100%;
 }
 
-
 .input-hint {
     position: absolute;
     top: 100%;
@@ -274,20 +262,17 @@ app-header {
     pointer-events: none;
 }
 
-/* Адаптация для больших полей входа */
 .login-box .input-hint {
     font-size: 18px;
     padding: 6px 14px;
 }
 
-/* Если поле с hint имеет класс field-error, hint должен оставаться видимым */
 .field-error ~ .input-hint {
     color: #6c757d;
     background: #ffffff;
     border-color: #000000;
 }
 
-/* ---------- АДАПТИВНОСТЬ ДЛЯ ПОЛЕЙ ВХОДА ---------- */
 .login-box .input-wrapper .field-input {
     padding-right: 45px;
 }

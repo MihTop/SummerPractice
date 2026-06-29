@@ -1,0 +1,56 @@
+<div class="main-box mb-4">
+    <div class="newpost-title">
+        <p>Добавление новой записи</p>
+    </div>
+
+    <div class="p-4">
+        <div class="d-flex flex-column gap-4">
+
+            <div class="field-group">
+                <label class="field-label">Введите текст</label>
+                <div class="input-wrapper">
+                    <textarea 
+                        class="field-input textarea-input" 
+                        [(ngModel)]="postText"
+                        rows="6"
+                        placeholder="Текст"
+                        maxlength="4095"
+                        (input)="checkFormValidity()"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="d-flex gap-3 align-items-end">
+                <div class="field-group flex-grow-1">
+                    <label class="field-label">Прикрепить изображение</label>
+                    <div class="file-upload-row">
+                        <input 
+                            class="field-input" 
+                            type="text" 
+                            [(ngModel)]="imagePath"
+                            readonly 
+                            placeholder=""
+                        />
+                        <span class="btn-file" (click)="triggerFileInput()">Обзор...</span>
+                        <input 
+                            type="file" 
+                            #fileInput
+                            accept="image/*"
+                            style="display: none"
+                            (change)="onFileSelected($event)"
+                        />
+                    </div>
+                </div>
+                <div class="add-post-actions">
+                    <button 
+                        class="btn-primary" 
+                        [class.btn-disabled]="!isFormValid"
+                        [disabled]="!isFormValid"
+                    >
+                        Добавить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

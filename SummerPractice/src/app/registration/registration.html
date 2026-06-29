@@ -10,9 +10,9 @@
                     </div>
 
                     <div class="row g-4 p-4">
-                        <!-- ЛЕВАЯ КОЛОНКА -->
+
                         <div class="col-lg-8">
-                            <!-- 1. Псевдоним -->
+
                             <div class="field-group">
                                 <label class="field-label">
                                     Псевдоним<span class="star">*</span>
@@ -36,7 +36,7 @@
                                             <span class="error-message">Допустимы только латиница, кириллица, цифры и подчёркивания</span>
                                         }
                                     </div>
-                                    <!-- Хинт при фокусе, если поле пустое -->
+
                                     @if (showNicknameHint && !nickname) {
                                         <span class="input-hint">От 3 до 20 символов. Латиница, кириллица, цифры и подчёркивания</span>
                                     }
@@ -49,7 +49,6 @@
                                 }
                             </div>
 
-                            <!-- 2. Почта -->
                             <div class="field-group">
                                 <label class="field-label">
                                     Почта<span class="star">*</span>
@@ -76,7 +75,6 @@
                                 }
                             </div>
 
-                            <!-- 3. Пароль -->
                             <div class="field-group">
                                 <label class="field-label">
                                     Пароль<span class="star">*</span>
@@ -92,7 +90,7 @@
                                         (blur)="showPasswordHint = false"
                                         (input)="passwordError = false; generalError = false; checkPasswordChars()"
                                     />
-                                    <!-- Хинт при фокусе, если поле пустое -->
+
                                     @if (showPasswordHint && !password) {
                                         <span class="input-hint">От 6 до 20 символов. Латиница, цифры и подчёркивания</span>
                                     }
@@ -108,7 +106,6 @@
                                 }
                             </div>
 
-                            <!-- 4. Подтвердите пароль -->
                             <div class="field-group">
                                 <label class="field-label">
                                     Подтвердите пароль<span class="star">*</span>
@@ -134,7 +131,6 @@
                                 }
                             </div>
 
-                            <!-- 5. Фамилия -->
                             <div class="field-group">
                                 <label class="field-label">Фамилия</label>
                                 <div class="input-wrapper">
@@ -150,7 +146,6 @@
                                 </div>
                             </div>
 
-                            <!-- 6. Имя -->
                             <div class="field-group">
                                 <label class="field-label">Имя</label>
                                 <div class="input-wrapper">
@@ -166,7 +161,6 @@
                                 </div>
                             </div>
 
-                            <!-- 7. Выберите фото -->
                             <div class="field-group">
                                 <label class="field-label">Выберите фото</label>
                                 <div class="file-upload-row">
@@ -187,7 +181,6 @@
                                 </div>
                             </div>
 
-                            <!-- 8. Контактная информация -->
                             <div class="field-group">
                                 <label class="field-label">Контактная информация</label>
                                 <div class="input-wrapper">
@@ -203,7 +196,6 @@
                                 </div>
                             </div>
 
-                            <!-- 9. О себе -->
                             <div class="field-group">
                                 <label class="field-label">О себе</label>
                                 <div class="input-wrapper">
@@ -219,7 +211,6 @@
                                 </div>
                             </div>
 
-                            <!-- 10. Достижения -->
                             <div class="field-group">
                                 <label class="field-label">Достижения</label>
                                 <div class="input-wrapper">
@@ -235,7 +226,6 @@
                                 </div>
                             </div>
 
-                            <!-- Подвал формы -->
                             <div class="d-flex justify-content-between align-items-center mt-3 gap-3 flex-wrap">
                                 <span class="required-note">
                                     * — Обязательные для заполнения поля
@@ -252,7 +242,6 @@
                             }
                         </div>
 
-                        <!-- ПРАВАЯ КОЛОНКА (Аватар) -->
                         <div class="col-lg-4">
                             <div class="avatar-wrapper">
                                 <span class="avatar-label">Аватар</span>
@@ -264,7 +253,6 @@
                     </div>
                 </div>
                 
-                <!-- Футер с переходом на вход -->
                 <div class="form-footer mt-4">
                     <span class="form-footer-text">Уже есть аккаунт?</span>
                     <button class="btn-primary btn-sm" routerLink="/login">
