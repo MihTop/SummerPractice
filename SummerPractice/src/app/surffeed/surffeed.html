@@ -5,17 +5,17 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 col-12">
 
-                <app-newpost></app-newpost>
+                <app-newpost (postCreated)="loadPosts()"></app-newpost>
                 
                 <div class="posts-feed mt-4">
                     @for (post of posts; track post.id) {
                         <app-post 
-                            [username]="post.username"
-                            [avatar]="post.avatar"
-                            [date]="post.date"
+                            [username]="post.author"
+                            [avatar]="'assets/avatar-placeholder.png'"
+                            [date]="post.publishDateTime"
                             [text]="post.text"
-                            [image]="post.image"
-                            [likes]="post.likes"
+                            [image]="''"
+                            [likes]="0"
                         ></app-post>
                     }
                 </div>
