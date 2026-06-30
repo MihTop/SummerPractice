@@ -9,7 +9,7 @@ public class LoginController : ControllerBase
     {
         User? user;
         using(ApplicationContext db = new ApplicationContext()){
-            user = db.Users.FirstOrDefault(c => (c.Nickname == loginRequest.Login || c.Email == loginRequest.Login) && c.Password == loginRequest.Password);
+            user = db.Users.FirstOrDefault(c => (c.Nickname == loginRequest.Nickname || c.Email == loginRequest.Nickname) && c.Password == loginRequest.Password);
         }
 
         if(user == null){

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class RegisterController : ControllerBase
 {
     [HttpPost]
@@ -9,7 +10,7 @@ public class RegisterController : ControllerBase
     {
         using (ApplicationContext db = new ApplicationContext())
         {
-            
+            // Проверка, что псевдоним не занят
             var existingUserByNickname = db.Users.FirstOrDefault(u => u.Nickname == registrationRequest.Nickname);
             if (existingUserByNickname != null)
             {
@@ -23,7 +24,14 @@ public class RegisterController : ControllerBase
                 return BadRequest(new { message = "Такая почта уже зарегистрирована" });
             }
 
-            // Создание нового пользователя
+            // Сохраняем изображение, если оно есть
+            string fileName = null;
+            if (registrationRequest.ImageFile != null && registrationRequest.ImageFile.Length > 0)
+            {
+                fileName = ImageSaveHelper.SaveImage(registrationRequest.ImageFile);
+            }
+
+            // Создаем нового пользователя
             User newUser = new User
             {
                 Nickname = registrationRequest.Nickname,
@@ -31,7 +39,7 @@ public class RegisterController : ControllerBase
                 Password = registrationRequest.Password,
                 Surname = registrationRequest.Surname,
                 Name = registrationRequest.Name,
-                Image = registrationRequest.ImageFile,
+                Image = fileName,
                 Contacts = registrationRequest.Contacts,
                 UserInfo = registrationRequest.UserInfo,
                 Achievements = registrationRequest.Achievements

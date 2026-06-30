@@ -41,7 +41,7 @@ app.UseCors("AllowAngularOrigins");
 
 app.UseStaticFiles();
 
-//app.UseMiddleware<BasicAuthMiddleware>();
+app.UseMiddleware<BasicAuthMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

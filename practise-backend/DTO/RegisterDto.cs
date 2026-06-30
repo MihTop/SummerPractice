@@ -5,7 +5,7 @@ public class RegistrationDto
     public string? Password { get; set; }
     public string? Surname { get; set; }
     public string? Name { get; set; }
-    public string? ImageFile { get; set; }
+    public IFormFile? ImageFile { get; set; }
     public string? Contacts { get; set; }
     public string? UserInfo { get; set; }
     public string? Achievements { get; set; }
