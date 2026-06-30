@@ -79,6 +79,11 @@
                                     Заполнены не все обязательные поля
                                 </div>
                             }
+                            @if (loginError){
+                                <div class="general-error">
+                                    Неверен логин или пароль
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

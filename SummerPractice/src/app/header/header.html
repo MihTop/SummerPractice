@@ -1,7 +1,23 @@
 <header>
-    <span>SURF.RU</span>
-    <div>
-        <a>Регистрация</a>
+    <div class="header-left">
+        <span routerLink="/" style="cursor: pointer;">SURF.RU</span>
+    </div>
+    <div class="header-right">
+        @if (!isAuthenticated) {
+            <!-- Показываем ссылку на регистрацию, только если НЕ на странице регистрации -->
+            @if (currentRoute !== '/registration') {
+                <a routerLink="/registration">Регистрация</a>
+            }
+            <!-- Показываем ссылку на вход, только если НЕ на странице входа -->
+            @if (currentRoute !== '/login') {
+                <a routerLink="/login">Вход</a>
+            }
+        } @else {
+            <div class="user-info">
+                <img [src]="photo || 'assets/avatar-placeholder.png'" alt="Аватар" class="user-avatar" />
+                <span class="username">{{ nickname || 'Пользователь' }}</span>
+                <button class="logout-btn" (click)="logout()">Выйти</button>
+            </div>
+        }
     </div>
 </header>
-

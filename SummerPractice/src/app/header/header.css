@@ -14,32 +14,74 @@ header {
     box-sizing: border-box;
 }
 
-header div {
+.header-left {
     display: flex;
     align-items: center;
-    gap: 20px;
 }
 
-header span {
+.header-left span {
     font-size: 26px;
     font-weight: 800;
     color: #ffffff;
     letter-spacing: -0.5px;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 header a {
-    color: #000000;
+    color: #ffffff;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
     font-family: inherit;
     padding: 4px 0;
+    transition: opacity 0.2s;
 }
 
-header a::before {
-    content: '|';
-    margin-right: 20px;
-    color: #000000;
+header a:hover {
+    opacity: 0.8;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    object-fit: cover;
+    background: #ffffff;
+}
+
+.username {
+    color: #ffffff;
+    font-size: 16px;
     font-weight: 600;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    background: #ffffff;
+    color: #58b3e6;
 }

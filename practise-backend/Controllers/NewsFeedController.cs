@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 
 [ApiController]
 [Route("[controller]")]
-// [Authorize] - убрали авторизацию
 public class NewsFeedController : ControllerBase
 {
     // GET: /NewsFeed - получить все посты
@@ -31,6 +30,7 @@ public class NewsFeedController : ControllerBase
 
     // POST: /NewsFeed - создать новый пост
     [HttpPost]
+    [Authorize] 
     public IActionResult Post([FromForm] AddPostDto addPostRequest)
     {
 

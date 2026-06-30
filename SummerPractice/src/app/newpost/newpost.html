@@ -46,6 +46,7 @@
                         class="btn-primary" 
                         [class.btn-disabled]="!isFormValid"
                         [disabled]="!isFormValid"
+                        (click) = "onSubmit()"
                     >
                         Добавить
                     </button>

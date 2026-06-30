@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("[controller]")]
-[Authorize]
 public class RegisterController : ControllerBase
 {
     [HttpPost]
